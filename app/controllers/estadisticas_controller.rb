@@ -1,7 +1,7 @@
 class EstadisticasController < ApplicationController
 
   layout 'estadisticas'
-  before_action :filtros_iniciales, only: [:show]
+  before_action :cache_filtros_ev, only: [:show]
 
   def show
     # Por si no coincidio nada
