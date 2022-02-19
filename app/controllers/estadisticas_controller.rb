@@ -2,7 +2,8 @@ class EstadisticasController < ApplicationController
 
   layout 'estadisticas'
   before_action :cache_filtros_ev, only: [:show]
-
+  before_action :unset_basic_search
+  
   def show
     # Por si no coincidio nada
     @taxones = Especie.none
@@ -170,4 +171,8 @@ class EstadisticasController < ApplicationController
     padre
   end
 
+  def unset_basic_search
+	  @no_render_busqueda_basica = true
+  end
+	
 end
