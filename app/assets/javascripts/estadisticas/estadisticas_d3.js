@@ -1,4 +1,4 @@
-$(window).load(function() {
+$(document).ready(function(){
     // Animate loader off screen
     $("#cargando-estadistica").fadeOut();
     $("#estadistica-listo").fadeIn();

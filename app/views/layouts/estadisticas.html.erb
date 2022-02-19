@@ -11,12 +11,13 @@
   <script type="text/javascript" data-turbolinks-track="true">
     SITE_URL = "<%= CONFIG.site_url %>";
   </script>
-
+	
+	
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	
   <script src='https://d3js.org/d3.v4.min.js'></script>
   <script src="https://d3js.org/d3-dsv.v1.min.js"></script>
 
-
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'estadisticas/estadisticas', 'data-turbolinks-track' => true %>
 
   <script type="text/javascript" data-turbolinks-track="true">
@@ -44,25 +45,19 @@
 <%= yield :ribbon %>
 
 <header class="container-fluid">
-  <%= render :partial => 'estadisticas/brandBar' %>
-</header>
-
-<header class="container-fluid">
-  <%= render :partial => 'shared/tituloBuscador', locals: {icon_class: '', titulo: "<a href='/estadisticas' class='text-info' data-turbolinks='false'>Estadísticas </a> <span class='glyphicon glyphicon-stats'></span>"} %>
+	<%= render :partial => 'shared_b4/brandBar' %>
+	<%= yield :extra_title_header %>
 </header>
 
 <section id="content" class="container-fluid">
-  <div class="row main">
-    <%= yield %>
-  </div>
+	<div class="row main bg-light">
+		<%= yield %>
+	</div>
 </section>
 
-<footer class="social">
-  <%= render :partial => 'shared/footer_social' %>
-</footer>
-
-<footer class="legal">
-  <%= render :partial => 'shared/footer_legal' %>
+<footer class="container-fluid">
+	<%= render :partial => 'shared_b4/footer_social' %>
+	<%= render :partial => 'shared_b4/footer_legal' %>
 </footer>
 
 <%= yield :delayedjs %>
